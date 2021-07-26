@@ -192,10 +192,32 @@
                     <ion-icon class="check oculto" name="checkmark-circle-sharp"></ion-icon>    
                 </div>        
             </div>            
-        </div>        
-    </div>    
+        </div> 
+        <div class="tela-final oculto">
+            <div class="confirmacao-do-pedido"> 
+                <p class="confirme-seu-pedido">Confirme seu pedido</p> 
+                <div class="revisar-pedido">
+                    <div class="opcoes-escolhidas">
+                        <p>opção</p>
+                        <p>opção</p>
+                        <p>opção</p>
+                        <p class="total">TOTAL</p>
+                    </div>
+                    <div class="valores">
+                        <p>valor</p>
+                        <p>valor</p>
+                        <p>valor</p>
+                        <p class="total">valor</p>
+                    </div>
+                </div>  
+                <button class="pedir" onclick="fazerPedido()">Tudo certo, pode pedir!</button>   
+                <button class="cancelar" onclick="cancelarPedido()">Cancelar</button>    
+            </div>
+        </div>      
+          
+    </div>     
     <div class="barra-inferior">
-        <button onclick="fazerPedido()">
+        <button class="fechar-pedido" onclick="revisarPedido()">
             <p class="paragrafo">Selecione os 3 itens<br> para fechar o pedido</p>
         </button>   
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

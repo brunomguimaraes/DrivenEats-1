@@ -4,7 +4,7 @@ let sobremesa;
 let valorDoPratoPrincipal;
 let valorDaBebida;
 let valorDaSobremesa;
-
+let total;
 function selecionarPratoPrincipal(elemento) {
     const marcado = document.querySelector(".prato-principal .selecionado");
     const icone = document.querySelector(".prato-principal .selecionado .check");
@@ -63,24 +63,40 @@ function selecionarSobremesa(elemento) {
 }
 
 function terminarPedido() {
-    let botao = document.querySelector("button").disabled = true;
+    let botao = document.querySelector(".barra-inferior button").disabled = true;
     if ((pratoPrincipal !== undefined) && (bebida !== undefined) && (sobremesa !== undefined)) {
-        botao = document.querySelector("button");
+        botao = document.querySelector(".barra-inferior button");
         botao.classList.add("terminar-pedido");
         document.querySelector(".paragrafo").innerHTML = "Fechar pedido";
         botao.disabled = false;
     }
 }
 
+
+function revisarPedido() {
+    let mostrarTelaFinal = document.querySelector(".conteudo .tela-final");
+    mostrarTelaFinal.classList.remove("oculto");
+    let opcoesEscolhidas = document.querySelector(".conteudo .opcoes-escolhidas");
+    total = (Number(valorDoPratoPrincipal) + Number(valorDaBebida) + Number(valorDaSobremesa)).toFixed(2);
+    opcoesEscolhidas.innerHTML = "<p>" + pratoPrincipal + "</p><p>" + bebida + "</p><p>" + sobremesa + "</p><p class=total>TOTAL</p>"
+    let valoresDasOpcoes = document.querySelector(".conteudo .valores");
+    valoresDasOpcoes.innerHTML = "<p>" + valorDoPratoPrincipal + "</p><p>" + valorDaBebida + "</p><p>" + valorDaSobremesa + "</p><p class=total>R$ " + total + "</p>"
+
+}
+
+function cancelarPedido() {
+    let ocultarTelaFinal = document.querySelector(".conteudo .tela-final");
+    ocultarTelaFinal.classList.add("oculto");
+}
+
 function fazerPedido() {   
     nomeDoCliente = prompt("Qual é o seu nome?");
     enderecoDoCliente = prompt("Agora, digite o seu endereço: ")
-    let total = (Number(valorDoPratoPrincipal) + Number(valorDaBebida) + Number(valorDaSobremesa)).toFixed(2);
     let mensagemPadrão = "Olá, gostaria de fazer o pedido:\n- Prato: " + pratoPrincipal + "\n- Bebida: " + bebida + "\n- Sobremesa: " + sobremesa + "\nTotal: R$ " + total + "\n\n Nome: " + nomeDoCliente + "\n Endereço: " + enderecoDoCliente;    
     let urlDaMensagemPadrao = encodeURIComponent(mensagemPadrão);
     let link = "https://wa.me/5592993593563?text=" + urlDaMensagemPadrao;  
     location.href = link;
- }
+}
 
 
 
