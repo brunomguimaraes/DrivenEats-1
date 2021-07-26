@@ -23,7 +23,6 @@ function selecionarPratoPrincipal(elemento) {
     valorDoPratoPrincipal = tirandoCifrao.replace(",",".");      
     terminarPedido();
 }
-
 function selecionarBebida(elemento) {
     const marcado = document.querySelector(".bebidas .selecionado");
     const icone = document.querySelector(".bebidas .selecionado .check");
@@ -42,7 +41,6 @@ function selecionarBebida(elemento) {
     valorDaBebida = tirandoCifrao.replace(",",".")  
     terminarPedido();
 }
-
 function selecionarSobremesa(elemento) {
     const marcado = document.querySelector(".sobremesas .selecionado");
     const icone = document.querySelector(".sobremesas .selecionado .check");
@@ -61,7 +59,6 @@ function selecionarSobremesa(elemento) {
     valorDaSobremesa = tirandoCifrao.replace(",",".")   
     terminarPedido();
 }
-
 function terminarPedido() {
     let botao = document.querySelector(".barra-inferior button").disabled = true;
     if ((pratoPrincipal !== undefined) && (bebida !== undefined) && (sobremesa !== undefined)) {
@@ -71,8 +68,6 @@ function terminarPedido() {
         botao.disabled = false;
     }
 }
-
-
 function revisarPedido() {
     let mostrarTelaFinal = document.querySelector(".conteudo .tela-final");
     mostrarTelaFinal.classList.remove("oculto");
@@ -83,12 +78,10 @@ function revisarPedido() {
     valoresDasOpcoes.innerHTML = "<p>" + valorDoPratoPrincipal + "</p><p>" + valorDaBebida + "</p><p>" + valorDaSobremesa + "</p><p class=total>R$ " + total + "</p>"
 
 }
-
 function cancelarPedido() {
     let ocultarTelaFinal = document.querySelector(".conteudo .tela-final");
     ocultarTelaFinal.classList.add("oculto");
 }
-
 function fazerPedido() {   
     nomeDoCliente = prompt("Qual é o seu nome?");
     enderecoDoCliente = prompt("Agora, digite o seu endereço: ")
