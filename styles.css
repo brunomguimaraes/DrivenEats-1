@@ -9,6 +9,11 @@ font-family: 'Roboto', sans-serif;*/
     box-sizing: border-box;
 }
 
+
+::-webkit-scrollbar{
+    display: none;
+ }
+
 body {
     background-color: #E5E5E5;
 }
@@ -25,6 +30,7 @@ body {
     box-shadow: 
     0px -92px 0px -92px rgba(0, 0, 0, 0.25),
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 100;
 }
 
 .topo div {
@@ -37,6 +43,14 @@ h1 {
     color: #FFFFFF;    
 }
 
+h2 {
+    font-family: 'Righteous', cursive;
+    font-size: 26px;
+    color: #333333;   
+    margin-left: 19px;
+    padding-top: 31px;
+}
+
 p {
     font-family: 'Roboto', sans-serif;
 }
@@ -44,20 +58,12 @@ p {
 img {
     border-radius: 4px;
 }
+
 .topo p {
     font-size: 18px;
     color: #FFFFFF;
 }
 
-h2 {
-    font-family: 'Righteous', cursive;
-    font-size: 26px;
-    color: #333333;   
-    margin-left: 19px;
-    padding-top: 31px;
-
-
-}
 .conteudo {
     background-color: #E5E5E5;
     width: 100%;
@@ -69,32 +75,49 @@ h2 {
     display: flex;
     margin-left: 19px;
     margin-top: 17px;
-    overflow-x: scroll;
-   
+    overflow-x: scroll;   
 }
 
-.prato-principal div {
+.prato-principal > div {
     height: 216px;
     min-width: 172px;
     background-color: #FFFFFF;
     border-radius: 9px;
     margin-right: 16px;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
 }
 
+.textos {
+    width: 144px;
+    position: relative;
+}
 
+.check {
+    position: absolute;
+    width: 15.44px;
+    height: 15.44px;
+    color: #32B72F;
+    right: 0px;
+    bottom: 15.78px;    
+}
+
+.oculto {
+    display: none;
+}
+ 
 .prato-principal img {
-    margin-left: 14px;
-    padding-top: 18px;
+    margin-top: 18px;  
+    width: 144px;
+    height: 87px;
 }
 
-.prato-principal p {
-    padding-left: 15px;
-    margin-top: 8px;
+.prato-principal p {   
     line-height: 18px;
 }
 
-.nome {
+.nome-da-opcao {
     font-size: 16px;
     color: #333333;
     font-weight: bold;
@@ -110,12 +133,6 @@ h2 {
     font-size: 16px;
 }
 
-
-.prato-principal input {
-    display: none;
-}
-
-
 .bebidas {
     display: flex;
     margin-left: 19px;
@@ -123,22 +140,23 @@ h2 {
     overflow-x: scroll;
 }
 
-
-.bebidas div {
+.bebidas > div {
     height: 202px;
     min-width: 172px;
     background-color: #FFFFFF;
     border-radius: 9px;
     margin-right: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
 }
 
-.bebidas img {
-    margin-left: 15px;
-    padding-top: 18px;
+.bebidas img {   
+    margin-top: 18px;
+    margin-bottom: 8px;
 }
 
-.bebidas p {
-    padding-left: 14px;
+.bebidas p {    
     margin-top: 8px;
     line-height: 18px;
 }
@@ -152,25 +170,37 @@ h2 {
 
 
 
-.sobremesas div {
+.sobremesas > div {
     height: 197px;
     min-width: 172px;
     background-color: #FFFFFF;
     border-radius: 9px;
     margin-right: 16px;
     margin-bottom: 108px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .sobremesas img {
-    margin-left: 15px;
-    padding-top: 19px;
+    margin-top: 19px;
 }
 
-.sobremesas p {
-    padding-left: 14px;
+.sobremesas p {  
     margin-top: 7px;
     line-height: 18px;
 }
+
+.selecionado {
+    border: 6px solid #32B72F;
+
+  }
+
+.terminar-pedido {
+    background-color: #32B72F;
+}
+
+
 
 .barra-inferior {
     width: 100%;
