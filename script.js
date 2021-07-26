@@ -64,7 +64,6 @@ function selecionarSobremesa(elemento) {
 
 function terminarPedido() {
     let botao = document.querySelector("button").disabled = true;
-    // mudar = document.querySelector(".terminar-pedido")
     if ((pratoPrincipal !== undefined) && (bebida !== undefined) && (sobremesa !== undefined)) {
         botao = document.querySelector("button");
         botao.classList.add("terminar-pedido");
@@ -74,8 +73,10 @@ function terminarPedido() {
 }
 
 function fazerPedido() {   
+    nomeDoCliente = prompt("Qual é o seu nome?");
+    enderecoDoCliente = prompt("Agora, digite o seu endereço: ")
     let total = (Number(valorDoPratoPrincipal) + Number(valorDaBebida) + Number(valorDaSobremesa)).toFixed(2);
-    let mensagemPadrão = "Olá, gostaria de fazer o pedido:\n- Prato: " + pratoPrincipal + "\n- Bebida: " + bebida + "\n- Sobremesa: " + sobremesa + "\nTotal: R$ " + total;
+    let mensagemPadrão = "Olá, gostaria de fazer o pedido:\n- Prato: " + pratoPrincipal + "\n- Bebida: " + bebida + "\n- Sobremesa: " + sobremesa + "\nTotal: R$ " + total + "\n\n Nome: " + nomeDoCliente + "\n Endereço: " + enderecoDoCliente;    
     let urlDaMensagemPadrao = encodeURIComponent(mensagemPadrão);
     let link = "https://wa.me/5592993593563?text=" + urlDaMensagemPadrao;  
     location.href = link;
