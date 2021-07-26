@@ -5,6 +5,7 @@ let valorDoPratoPrincipal;
 let valorDaBebida;
 let valorDaSobremesa;
 let total;
+
 function selecionarPratoPrincipal(elemento) {
     const marcado = document.querySelector(".prato-principal .selecionado");
     const icone = document.querySelector(".prato-principal .selecionado .check");
@@ -19,8 +20,8 @@ function selecionarPratoPrincipal(elemento) {
     pratoPrincipal = buscandoPrato.innerHTML;    
     let buscandoValor = document.querySelector(".prato-principal .selecionado .valor");
     let pegandoValor = buscandoValor.innerHTML;
-    let tirandoCifrao = pegandoValor.substring(3);
-    valorDoPratoPrincipal = tirandoCifrao.replace(",",".");      
+    let removendoRs = pegandoValor.substring(3);
+    valorDoPratoPrincipal = removendoRs.replace(",",".");      
     terminarPedido();
 }
 function selecionarBebida(elemento) {
@@ -37,8 +38,8 @@ function selecionarBebida(elemento) {
     bebida = buscandoBebida.innerHTML;    
     let buscandoValor = document.querySelector(".bebidas .selecionado .valor");
     let pegandoValor = buscandoValor.innerHTML;
-    let tirandoCifrao = pegandoValor.substring(3);
-    valorDaBebida = tirandoCifrao.replace(",",".")  
+    let removendoRs = pegandoValor.substring(3);
+    valorDaBebida = removendoRs.replace(",",".")  
     terminarPedido();
 }
 function selecionarSobremesa(elemento) {
@@ -55,8 +56,8 @@ function selecionarSobremesa(elemento) {
     sobremesa = buscandoSobremesa.innerHTML;  
     let buscandoValor = document.querySelector(".sobremesas .selecionado .valor");
     let pegandoValor = buscandoValor.innerHTML;
-    let tirandoCifrao = pegandoValor.substring(3);
-    valorDaSobremesa = tirandoCifrao.replace(",",".")   
+    let removendoRs = pegandoValor.substring(3);
+    valorDaSobremesa = removendoRs.replace(",",".")   
     terminarPedido();
 }
 function terminarPedido() {
@@ -75,7 +76,7 @@ function revisarPedido() {
     total = (Number(valorDoPratoPrincipal) + Number(valorDaBebida) + Number(valorDaSobremesa)).toFixed(2);
     opcoesEscolhidas.innerHTML = "<p>" + pratoPrincipal + "</p><p>" + bebida + "</p><p>" + sobremesa + "</p><p class=total>TOTAL</p>"
     let valoresDasOpcoes = document.querySelector(".conteudo .valores");
-    valoresDasOpcoes.innerHTML = "<p>" + valorDoPratoPrincipal + "</p><p>" + valorDaBebida + "</p><p>" + valorDaSobremesa + "</p><p class=total>R$ " + total + "</p>"
+    valoresDasOpcoes.innerHTML = "<p>" + valorDoPratoPrincipal.replace(".",",") + "</p><p>" + valorDaBebida.replace(".",",") + "</p><p>" + valorDaSobremesa.replace(".",",") + "</p><p class=total>R$ " + String(total).replace(".",",") + "</p>"
 
 }
 function cancelarPedido() {
